@@ -359,7 +359,8 @@ h3 {
   transition: fill var(--transition-duration) var(--transition-timing-formula);
 }
 
-.modal .closed-btn:hover .closed-svg {
+.modal .closed-btn:hover .closed-svg,
+.modal .closed-btn:focus .closed-svg {
   fill: var(--main-blue-color);
 }
 
