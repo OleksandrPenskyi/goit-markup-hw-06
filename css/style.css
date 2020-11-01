@@ -737,6 +737,76 @@ h3 {
   margin-right: 10px;
 }
 
+/* *Делаем форму для футера */
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.subscribe-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--bg-third-color);
+}
+
+.subscribe .form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.subscribe .input-email {
+  display: flex;
+  align-items: center;
+
+  margin-right: 12px;
+  width: 358px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+  background: var(--bg-main-color);
+
+  /* ?Че это такое? */
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.subscribe .form-btn {
+  display: flex;
+  align-items: center;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+  padding-right: 28px;
+
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: var(--third-text-color);
+
+  background: var(--main-blue-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+}
+
+.form-btn-svg {
+  margin-left: 10px;
+}
+
 /* !CLOSED Футер */
 
 /* !Страница - "Портфолио" */
