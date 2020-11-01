@@ -30,6 +30,7 @@ font-weight: 700; */
   --secondary-text-color: #757575;
   --third-text-color: #ffffff;
   --main-blue-color: #2196f3;
+  --second-blue-color: #188ce8;
 
   --bg-main-color: #2f303a;
   --bg-secondary-color: #f5f4fa;
@@ -314,6 +315,12 @@ h3 {
   position: absolute;
   top: 50%;
   left: 50%;
+
+  padding-top: 37px;
+  padding-bottom: 43px;
+  padding-left: 40px;
+  padding-right: 40px;
+
   transform: translate(-50%, -50%) scale(1);
   transition: transform var(--transition-duration) var(--transition-timing-formula);
 
@@ -326,7 +333,8 @@ h3 {
   border-radius: 4px;
 }
 
-.closed-btn {
+/* Кнопка закрытия модалки */
+.modal .closed-btn {
   /* Position относительно .modal */
   position: absolute;
   top: 8px;
@@ -340,13 +348,131 @@ h3 {
   background: var(--bg-card-color);
 }
 
-.closed-svg {
+.modal .closed-svg {
   /* Position Позиционируем по центру относительно круга (.closed-btn)*/
   position: absolute;
   top: 50%;
   left: 50%;
 
   transform: translate(-50%, -50%);
+
+  transition: fill var(--transition-duration) var(--transition-timing-formula);
+}
+
+.modal .closed-btn:hover .closed-svg {
+  fill: var(--main-blue-color);
+}
+
+/* Форма модального окна */
+.backdrop .modal-field {
+  outline: 1px solid red;
+}
+
+.backdrop .modal-title {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
+}
+
+.form-block {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  margin-bottom: 4px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+}
+
+.form-description {
+  width: 100%;
+  /* padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 15px;
+  padding-right: 15px; */
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.form-block textarea {
+  resize: none;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 20px;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-field .form-policy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.modal-field .policy-checkbox {
+  margin-right: 7px;
+}
+
+.modal-field .policy-label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+}
+
+.policy-label a {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  /* text-decoration-line: underline; */
+  color: var(--main-blue-color);
+}
+
+/* Кнопка закрытия */
+.modal-field .btn-send {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 56px;
+  padding-right: 55px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  border: none;
+  background: var(--main-blue-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  color: var(--third-text-color);
 }
 /* !CLOSED hero */
 
