@@ -430,8 +430,10 @@ h3 {
   position: absolute;
   top: 50%;
   left: 12px;
+  /* Чтобы можно было нажать поверх svg icon */
+  pointer-events: none;
 }
-
+/* todo Убери placeholder */
 .form-block-textarea textarea {
   resize: none;
   width: 100%;
@@ -447,7 +449,7 @@ h3 {
   border-radius: 4px;
 }
 
-.form-block textarea::placeholder {
+.form-block textarea:placeholder {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -908,6 +910,7 @@ h3 {
 
 .subscribe .form {
   position: relative;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -948,7 +951,6 @@ h3 {
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
-
   /* Чтобы можно было нажать поверх form-label текста */
   pointer-events: none;
 }
@@ -966,7 +968,7 @@ h3 {
   overflow: hidden;
 }
 
-/* Кнопка отправки */
+/* Кнопка отправки  */
 .subscribe .form-btn {
   display: flex;
   align-items: center;
@@ -987,7 +989,7 @@ h3 {
   border: none;
 }
 
-.form-btn-svg {
+.form-btn svg {
   margin-left: 10px;
 }
 
