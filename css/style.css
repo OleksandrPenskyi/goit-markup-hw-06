@@ -316,8 +316,8 @@ h3 {
   top: 50%;
   left: 50%;
 
-  padding-top: 37px;
-  padding-bottom: 43px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
 
@@ -380,13 +380,23 @@ h3 {
 }
 
 .form-block {
+  position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
-.form-label {
+.form-block-textarea {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-label,
+.form-block-textarea .form-label {
   margin-bottom: 4px;
 
   font-weight: 400;
@@ -398,21 +408,34 @@ h3 {
 
 .form-description {
   width: 100%;
-  /* padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 15px;
-  padding-right: 15px; */
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 42px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
 }
 
-.form-block textarea {
+.form-description:focus + .form-svg {
+  fill: var(--main-blue-color);
+}
+
+/* ?так или не так? */
+.form-description:focus {
+  outline-color: #2196f3;
+}
+
+.form-svg {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+}
+
+.form-block-textarea textarea {
   resize: none;
   width: 100%;
   height: 120px;
-  margin-bottom: 20px;
 
   padding-top: 12px;
   padding-bottom: 12px;
@@ -422,13 +445,6 @@ h3 {
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
-
-  color: red;
-  /* font-weight: 400;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5); */
 }
 
 .form-block textarea::placeholder {
@@ -891,12 +907,13 @@ h3 {
 }
 
 .subscribe .form {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.subscribe .input-email {
+.subscribe .form-input {
   display: flex;
   align-items: center;
 
@@ -907,20 +924,11 @@ h3 {
   padding-left: 16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-
-  /* font-weight: 400;
-  font-size: 25px;
-  line-height: 1.25;
-  letter-spacing: 0.03em;
-  color: rgba(255, 255, 255, 0.6); */
-
   background: var(--bg-main-color);
-
   /* ?Че это такое? */
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-}
 
-.subscribe .input-email::placeholder {
+  /* Стили для активной фазы input */
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
@@ -928,6 +936,37 @@ h3 {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.subscribe .form-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+
+  /* Стили для надписи E-mail */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+
+  /* Чтобы можно было нажать поверх form-label текста */
+  pointer-events: none;
+}
+
+/* Когда input активен, или исчез плейсхолдерпись E-mail скрывается  */
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Кнопка отправки */
 .subscribe .form-btn {
   display: flex;
   align-items: center;
