@@ -71,11 +71,10 @@
 
           <!-- Кнопка окрытия модального окна -->
           <button class="open-btn" type="button" data-modal-open>Заказать услугу</button>
-          
+
           <!-- Модальное окно -->
           <div class="backdrop is-hidden" data-modal>
             <div class="modal">
-
               <!-- Кнопка закрытия модального окна -->
               <button class="closed-btn" type="button" data-modal-close>
                 <svg class="closed-svg" width="11" height="11">
@@ -121,9 +120,13 @@
 
                 <!-- todo Делай тут -->
                 <div class="form-policy" role="group">
-                  <input class="policy-checkbox" type="checkbox" id="policy" name="policy" />
-                  <label class="policy-label" for="policy"
-                    >Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a>
+                  <label class="policy-label">
+                    <input class="policy-checkbox" type="checkbox" name="policy" />
+                    <svg class="policy-svg" width="16" height="15">
+                      <use href="../images/symbols.svg#icon-check"></use>
+                    </svg>
+
+                    Соглашаюсь с рассылкой и принимаю <a href="#">Условия договора</a>
                   </label>
                 </div>
 
