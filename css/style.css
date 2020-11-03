@@ -317,7 +317,6 @@ h3 {
   left: 50%;
 
   padding-top: 40px;
-  padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
 
@@ -364,11 +363,7 @@ h3 {
   fill: var(--main-blue-color);
 }
 
-/* Форма модального окна */
-.backdrop .modal-field {
-  outline: 1px solid red;
-}
-
+/* Form для модального окна */
 .backdrop .modal-title {
   display: block;
   margin-bottom: 12px;
@@ -379,6 +374,7 @@ h3 {
   color: var(--primary-text-color);
 }
 
+/* для первых трех input  */
 .form-block {
   position: relative;
   display: flex;
@@ -387,7 +383,8 @@ h3 {
   margin-bottom: 10px;
 }
 
-.form-block-textarea {
+/* для блока textarea */
+.form-textarea {
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -396,7 +393,8 @@ h3 {
 }
 
 .form-label,
-.form-block-textarea .form-label {
+.label-comment {
+  margin-top: 0;
   margin-bottom: 4px;
 
   font-weight: 400;
@@ -406,35 +404,41 @@ h3 {
   color: var(--secondary-text-color);
 }
 
-.form-description {
+.form-input {
   width: 100%;
   padding-top: 11px;
   padding-bottom: 11px;
   padding-left: 42px;
+  padding-right: 42px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
 }
 
-.form-description:focus + .form-svg {
-  fill: var(--main-blue-color);
-}
-
-/* ?так или не так? */
-.form-description:focus {
-  outline-color: #2196f3;
-}
-
 .form-svg {
   position: absolute;
   top: 50%;
   left: 12px;
+
   /* Чтобы можно было нажать поверх svg icon */
   pointer-events: none;
 }
-/* todo Убери placeholder */
-.form-block-textarea textarea {
+
+/* при фокусе на input (и при набраном тексте) происходит смена цвета svg */
+.form-input:focus + .form-svg,
+.form-input:not(:placeholder-shown) + .form-svg {
+  fill: var(--main-blue-color);
+}
+
+/* при фокусе на input (и при набраном тексте) происходит смена цвета рамки */
+.form-input:focus,
+.form-input:not(:placeholder-shown) {
+  outline: none;
+  border-color: var(--main-blue-color);
+}
+
+.form-textarea textarea {
   resize: none;
   width: 100%;
   height: 120px;
@@ -449,7 +453,13 @@ h3 {
   border-radius: 4px;
 }
 
-.form-block textarea:placeholder {
+.form-textarea .label-placeholder {
+  position: absolute;
+  top: 32px;
+  left: 17px;
+
+  margin: 0;
+
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -457,18 +467,38 @@ h3 {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.modal-field .form-policy {
+/* Когда textarea в фокусе и набран текст (т.е. нет placeholder), то рамка становится синей  */
+.form-textarea textarea:focus,
+.form-textarea textarea:not(:placeholder-shown) {
+  outline: none;
+  border-color: var(--main-blue-color);
+}
+
+/* Когда textarea в фокусе и набран текст (т.е. нет placeholder), label-placeholder исчезает */
+.form-textarea textarea:focus + .label-placeholder,
+.form-textarea textarea:not(:placeholder-shown) + .label-placeholder {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.form-field .form-policy {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.modal-field .policy-checkbox {
+.form-field .policy-checkbox {
   margin-right: 7px;
 }
 
-.modal-field .policy-label {
+.form-field .policy-label {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
@@ -486,7 +516,7 @@ h3 {
 }
 
 /* Кнопка закрытия */
-.modal-field .btn-send {
+.form-field .btn-send {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 56px;
