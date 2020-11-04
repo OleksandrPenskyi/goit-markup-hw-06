@@ -367,6 +367,7 @@ h3 {
 .backdrop .modal-title {
   display: block;
   margin-bottom: 12px;
+
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
@@ -458,8 +459,6 @@ h3 {
   top: 32px;
   left: 17px;
 
-  margin: 0;
-
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -534,9 +533,13 @@ h3 {
 
   border: 2px solid var(--primary-text-color);
   border-radius: 2px;
+
+  transition: all var(--transition-duration) var(--transition-timing-formula);
 }
 
-.form-policy .policy-checkbox:focus + .icon-check::before {
+/* Когда чекбокс в фокусе, или наведен Ховер, то кастомный чекбокс подсвечивается синей рамкой  */
+.form-policy .policy-checkbox:focus + .icon-check::before,
+.form-policy .policy-checkbox:hover + .icon-check::before {
   border-color: var(--main-blue-color);
 }
 
@@ -548,30 +551,6 @@ h3 {
   border-color: transparent;
   background-origin: border-box;
 }
-
-/* Оформляем кастомный чекбокс */
-/* .form-policy .icon-check {
-  display: inline-block;
-  margin-right: 8px;
-  width: 16px;
-  height: 15px;
-  border: 2px solid var(--primary-text-color);
-  border-radius: 2px;
-} */
-
-/* Когда кастомный чекбокс в фокусе, то он в синей рамке */
-/* .form-policy .policy-checkbox:focus + .icon-check {
-  border-color: var(--main-blue-color);
-} */
-
-/* Когда кастомный чекбокс зачекан, то он с синей птичкой */
-/* .form-policy .policy-checkbox:checked + .icon-check {
-  background-color: var(--main-blue-color);
-  background-image: url('../images/icon-check.svg');
-  background-size: contain;
-  border-color: transparent;
-  background-origin: border-box;
-} */
 
 .policy-label a {
   color: var(--main-blue-color);
@@ -992,6 +971,7 @@ h3 {
 
 .subscribe-title {
   margin-bottom: 20px;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -1000,7 +980,7 @@ h3 {
   color: var(--bg-third-color);
 }
 
-.subscribe .form {
+.subscribe .subscribe-form {
   position: relative;
 
   display: flex;
@@ -1017,10 +997,10 @@ h3 {
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 16px;
+
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   background: var(--bg-main-color);
-  /* ?Че это такое? */
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 
   /* Стили для активной фазы input */
@@ -1047,7 +1027,7 @@ h3 {
   pointer-events: none;
 }
 
-/* Когда input активен, или исчез плейсхолдерпись E-mail скрывается  */
+/* Когда input активен или исчез плейсхолдер - надпись E-mail скрывается  */
 .form-input:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label {
   position: absolute;
